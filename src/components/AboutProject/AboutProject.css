@@ -1,0 +1,58 @@
+.project{
+    margin: 110px auto;
+}
+
+.project__container{
+    display: flex;
+    margin: 70px 70px 110px;
+}
+
+.project__text{
+    max-width: 550px;
+    margin-right: 40px;
+}
+
+.project__title{
+    margin: 0 0 26px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.project__paragraph{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.project__backend{
+    min-width: 220px;
+    max-height: 36px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 9px 0;
+}
+
+.project__frontend{
+    min-width: 912px;
+    max-height: 36px;
+    background-color: #F2F2F2;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 9px 0;
+}
+
+.project__span{
+    text-align: center;
+    color: #A0A0A0;
+    margin: 14px 0 0;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}

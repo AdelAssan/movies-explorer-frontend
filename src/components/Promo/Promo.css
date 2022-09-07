@@ -1,0 +1,44 @@
+.promo{
+    background-color: #F3C1F8;
+    display: flex;
+    padding: 75px 70px 50px;
+}
+
+.promo__container{
+    max-width: 640px;
+    margin-right: 190px;
+}
+
+.promo__title{
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    margin: 0;
+    padding: 0;
+}
+
+.promo__text{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    opacity: 0.5;
+    max-width: 310px;
+    margin: 36px 0 146px;
+}
+
+.promo__btn{
+    width: 129px;
+    height: 36px;
+    background-color: inherit;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    transition: opacity .6s ease;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+}
+
+.promo__img{
+    max-height: 304px;
+}

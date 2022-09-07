@@ -1,0 +1,44 @@
+.techs{
+    margin: 0 auto;
+}
+
+.techs__title{
+    display: flex;
+    justify-content: center;
+    margin: 70px auto 26px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+}
+
+.techs__paragraph{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 100px;
+    max-width: 460px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.techs__container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.techs__keys{
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    min-width: 90px;
+    min-height: 60px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

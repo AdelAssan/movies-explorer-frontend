@@ -1,0 +1,25 @@
+.header{
+    background-color: inherit;
+    max-width: 1140px;
+    padding: 18px 70px;
+}
+
+.header__logo{
+    cursor: pointer;
+    transition: opacity .5s ease;
+}
+
+@media screen and (min-width: 600px) {
+    .header{
+        max-width: 768px;
+        padding: 18px 30px;
+    }
+}
+
+
+@media screen and (min-width: 400px) {
+    .header{
+        max-width: 320px;
+        padding: 18px 14px;
+    }
+}

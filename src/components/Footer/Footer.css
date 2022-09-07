@@ -1,0 +1,33 @@
+.footer{
+    margin: 0 70px 20px;
+}
+
+.footer__paragraph{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 20px;
+    color: #A0A0A0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.footer__signature{
+    display: flex;
+    margin-top: 20px;
+}
+
+.footer__text{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    margin: 0;
+}
+
+.footer__link{
+    margin-right: 20px;
+    margin-left: 920px;
+}
