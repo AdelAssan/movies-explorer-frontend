@@ -1,11 +1,13 @@
 .about{
-    margin: 0 70px 125px;
+    margin: 0 0 125px;
     padding-top: 110px;
+    box-sizing: border-box;
 }
 
 .about__container{
     display: flex;
     margin-top: 66px;
+    margin-left: 70px;
 }
 
 .about__photo{
@@ -54,7 +56,7 @@
 }
 
 .about__portfolio{
-    margin: 101px 0 125px;
+    margin: 101px 70px 125px;
 }
 
 .about__portfolio-name{
@@ -88,6 +90,124 @@
     position: absolute;
     right: 5px;
     top: 5px;
+}
+
+@media screen and (max-width: 877px) {
+    .about{
+        margin: 0 0 169px;
+        padding-top: 90px;
+    }
+
+    .about__photo{
+        max-width: 255px;
+        max-height: 307px;
+    }
+
+    .about__text{
+        max-width: 364px;
+        margin-right: 49px;
+    }
+
+    .about__name{
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .about__description{
+        margin: 16px 0 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about__paragraph{
+        margin: 0 0 87px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about__portfolio{
+        margin: 91px 50px 125px;
+    }
+
+    .about__sites{
+        font-size: 28px;
+        line-height: 32px;
+        max-width: 700px;
+    }
+
+    .about__container{
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .about{
+        margin: 0 0 149px;
+        padding-top: 60px;
+    }
+
+    .about__photo{
+        max-width: 292px;
+        max-height: 352px;
+        margin: 0 auto 40px;
+    }
+
+    .about__container{
+        margin: 60px auto 0;
+        flex-direction: column-reverse;
+    }
+
+    .about__text{
+        max-width: 364px;
+        margin: 0 auto;
+    }
+
+    .about__name{
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .about__description{
+        margin: 20px 0;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about__paragraph{
+        margin: 0 0 40px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about__portfolio{
+        margin: 70px auto 149px;
+    }
+
+    .about__portfolio-name{
+        font-size: 14px;
+        line-height: 20px;
+        padding-bottom: 40px;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    .about__sites{
+        font-size: 18px;
+        line-height: 28px;
+        max-width: 500px;
+        padding: 0 0 19px;
+        white-space: nowrap;
+        margin: 0 auto;
+    }
+
+    .about__arrow{
+        background-size: 18px;
+        min-width: 28px;
+        height: 21px;
+        margin-bottom: 19px;
+        right: 0;
+        top: 0;
+    }
 }
 
 

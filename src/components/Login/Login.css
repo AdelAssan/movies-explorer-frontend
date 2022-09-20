@@ -1,0 +1,15 @@
+.forms__error{
+    color: #FF4062;
+}
+
+.login{
+    margin: 70px auto 0;
+    max-width: 396px;
+}
+
+@media screen and (max-width: 450px){
+    .login{
+        max-width: 260px;
+        margin: 50px auto 0;
+    }
+}

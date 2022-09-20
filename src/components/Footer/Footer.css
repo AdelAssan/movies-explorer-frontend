@@ -16,6 +16,8 @@
 .footer__signature{
     display: flex;
     margin-top: 20px;
+    white-space: nowrap;
+    position: relative;
 }
 
 .footer__text{
@@ -29,5 +31,65 @@
 
 .footer__link{
     margin-right: 20px;
-    margin-left: 920px;
+}
+
+.footer__link-yandex{
+    position: absolute;
+    right: 62px;
+}
+
+.footer__link-git{
+    position: absolute;
+    right: 0;
+}
+
+@media screen and (max-width: 877px) {
+    .footer{
+        margin: 0 30px 20px;
+    }
+
+    .footer__signature{
+        max-width: 750px;
+    }
+
+    .footer__paragraph{
+        max-width: 750px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .footer{
+        margin: 0 auto 10px;
+    }
+
+    .footer__paragraph{
+        padding-bottom: 21px;
+        font-size: 12px;
+    }
+
+    .footer__signature{
+        margin: 30px auto 0;
+        flex-direction: column-reverse;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .footer__text{
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .footer__link{
+        margin-right: 0;
+    }
+
+    .footer__link-yandex{
+        position: initial;
+        margin-bottom: 12px;
+    }
+
+    .footer__link-git{
+        position: initial;
+        margin-bottom: 30px;
+    }
 }

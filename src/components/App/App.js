@@ -1,5 +1,5 @@
 import React from "react";
-import {Redirect, Switch, Route, useHistory} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,6 +9,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import Error from "../Error/Error";
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route exact path="/signup">
             <Register/>
+        </Route>
+        <Route exact path="/error">
+            <Error/>
         </Route>
         </Switch>
       <Footer/>

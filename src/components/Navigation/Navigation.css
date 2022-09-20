@@ -1,0 +1,177 @@
+.nav__menu{
+    display: none;
+}
+
+.nav__movies{
+    font-size: 13px;
+    line-height: 18px;
+    position: absolute;
+    right: 44%;
+    top: 30px;
+}
+
+.nav__movies-link{
+    text-decoration: none;
+    color: #000000;
+    margin-left: 16px;
+}
+
+.nav__account{
+    border-radius: 20px;
+    background-color: #F9F9F9;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    min-width: 100px;
+    min-height: 32px;
+    text-align: center;
+    padding: 8px 20px;
+    position: absolute;
+    right: 66px;
+    top: 29px;
+    cursor: pointer;
+}
+
+.nav__menu-button {
+    border: unset;
+    padding: 0;
+    background-image: url("../../images/burger.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: opacity .3s ease;
+    background-color: inherit;
+    position: absolute;
+    right: 5%;
+}
+
+.nav__menu-button:hover {
+    opacity: .6;
+}
+
+.header__menu-button:focus {
+    opacity: .6;
+}
+
+.nav__menu-button_active{
+    background-image: url("../../images/exit.svg");
+    margin-top: 10px;
+    margin-right: 0;
+}
+
+.nav__menu-button_active::after .nav_active{
+    flex-direction: column-reverse;
+}
+
+.nav__general{
+    display: none;
+}
+
+.nav__movies-link_active{
+    font-weight: 500;
+}
+
+@media screen and (min-width: 877px) {
+    .nav__menu-button {
+        visibility: hidden;
+    }
+
+    .nav__menu{
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 877px) {
+    .nav__menu_active{
+        position: fixed;
+        height: 100vh;
+        background-color: #FFFFFF;
+        width: 70%;
+        display: flex;
+        pointer-events: auto;
+        opacity: 1;
+        z-index: 3;
+        top: 0;
+        bottom: -30px;
+        right: 0;
+        justify-content: center;
+    }
+
+    .nav__menu-button_active{
+        position: fixed;
+        right: 10px;
+        top: 0;
+    }
+
+    .nav__movies{
+        display: flex;
+        margin-top: 187px;
+        flex-direction: column;
+        text-align: center;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 500;
+        white-space: nowrap;
+        position: fixed;
+        width: 32%;
+        right: 52%;
+        left: 48%;
+    }
+
+    .nav__general{
+        display: flex;
+        text-decoration: none;
+        color: #000000;
+        text-align: center;
+        position: fixed;
+        top: 159px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 28px;
+    }
+
+    .nav__movies-link{
+        margin-left: 16px;
+        margin-bottom: 28px;
+    }
+
+    .nav__movies-link_active{
+        text-decoration: underline;
+    }
+
+    .nav__account{
+        position: fixed;
+        top: 90%;
+        right: 43%;
+        left: 57%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .nav__buttons{
+        font-size: 10px;
+        line-height: 16px;
+        right: 14px;
+        top: 18px;
+    }
+
+    .nav__menu_active{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav__movies {
+        width: 100%;
+        right: 101%;
+        left: -1%;
+    }
+
+    .nav__account{
+        right: 60%;
+        left: 40%;
+    }
+}

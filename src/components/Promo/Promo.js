@@ -7,9 +7,9 @@ function Promo(props) {
             <div className="promo__container">
               <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
               <p className="promo__text">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
-                <button className="promo__btn">Узнать больше</button>
+                <a className="promo__btn" href="#project">Узнать больше</a>
             </div>
-            <img className="promo__img" alt="" src={textW}/>
+            <img className="promo__img" alt="Текстовый шар" src={textW}/>
         </section>
     );
 }
