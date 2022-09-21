@@ -48,11 +48,19 @@
 
 .promo__img{
     max-height: 304px;
+    max-width: 310px;
 }
 
-@media screen and (max-width: 877px) {
+@media screen and (max-width: 873px) {
+    .promo__container{
+        margin-right: 150px;
+    }
+}
+
+
+@media screen and (max-width: 829px) {
     .promo{
-        max-width: 768px;
+        max-width: 829px;
         padding: 140px 44px 66px;
         flex-direction: column-reverse;
         align-items: center;

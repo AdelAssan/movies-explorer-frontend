@@ -9,7 +9,7 @@
     background-color: #FDFDFD;
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
     border-radius: 9px;
-    max-height: 72px;
+    min-height: 72px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -51,6 +51,7 @@
     border-radius: 48px;
     margin-right: 19px;
     cursor: pointer;
+    border: none;
 }
 
 .search-form__switch{
@@ -126,6 +127,7 @@
     .search-form__form{
         max-width: 708px;
         flex-direction: column;
+        max-height: 72px;
     }
 
     .search-form__input-img{

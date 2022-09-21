@@ -11,6 +11,7 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 15px;
+    margin: 0;
 }
 
 .footer__signature{
@@ -43,9 +44,9 @@
     right: 0;
 }
 
-@media screen and (max-width: 877px) {
+@media screen and (max-width: 829px) {
     .footer{
-        margin: 0 30px 20px;
+        margin: 0 auto 20px;
     }
 
     .footer__signature{

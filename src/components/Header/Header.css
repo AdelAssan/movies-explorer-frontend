@@ -28,6 +28,11 @@
 .header__reg{
     background-color: inherit;
     border: none;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+    padding-top: 8px;
+    box-sizing: border-box;
 }
 
 .header__login{
@@ -37,13 +42,22 @@
     height: 32px;
     width: 76px;
     margin-left: 30px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 8px;
+    box-sizing: border-box;
 }
 
 
-@media screen and (max-width: 877px) {
+@media screen and (max-width: 829px) {
     .header{
-        max-width: 768px;
+        max-width: 829px;
         padding: 18px 30px;
+    }
+
+    .header__buttons{
+        right: 30px;
+        top: 25px;
     }
 }
 
@@ -52,5 +66,12 @@
     .header{
         max-width: 450px;
         padding: 18px 14px;
+    }
+
+    .header__buttons{
+        font-size: 10px;
+        line-height: 12px;
+        right: 14px;
+        top: 20px;
     }
 }

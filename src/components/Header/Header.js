@@ -17,8 +17,8 @@ function Header(props) {
             </Link>
             <div className="header__buttons"
                  style={{display: location.pathname !== "/" ? "none" : "flex"}}>
-                <button className="header__reg">Регистрация</button>
-                <button className="header__login">Войти</button>
+                <Link className="header__reg" to="/signup">Регистрация</Link>
+                <Link className="header__login" to="/signin">Войти</Link>
             </div>
            <Navigation/>
         </header>

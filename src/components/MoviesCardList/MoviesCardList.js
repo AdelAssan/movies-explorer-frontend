@@ -6,7 +6,7 @@ function MoviesCardList(props) {
     return (
         <section className="movies-cards">
             <MoviesCard/>
-            <button className="movies-cards__btn">Ещё</button>
+            <button className="movies-cards__btn" type="button">Ещё</button>
         </section>
 
     );

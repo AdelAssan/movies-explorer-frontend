@@ -30,7 +30,7 @@ function Navigation() {
         <Link to="/profile">
             <button
                 style={{display: location.pathname !== "/" ? "flex" : "none"}}
-                className="nav__account">Аккаунт</button>
+                className="nav__account" type="button">Аккаунт</button>
         </Link>
     </nav>
     </>);

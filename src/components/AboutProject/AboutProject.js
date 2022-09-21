@@ -15,7 +15,7 @@ function AboutProject(props) {
                 <p className="project__paragraph">У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
             </div>
             </div>
-            <div className="project__container">
+            <div className="project__container project__grid">
                 <div>
                   <p className="project__backend">1 неделя</p>
                   <span className="project__span">Back-end</span>

@@ -8,8 +8,8 @@ function Footer() {
             <p className="footer__paragraph">Учебный проект Яндекс.Практикум х BeatFilm.</p>
             <div className="footer__signature">
                 <p className="footer__text">&copy; 2022.</p>
-                <a className="footer__text footer__link footer__link-git" href="https://github.com/AdelAssan">Github</a>
-                <a className="footer__text footer__link footer__link-yandex" href="https://practicum.yandex.ru/">Яндекс.Практикум</a>
+                <a className="footer__text footer__link footer__link-git" target="_blank"  rel="noreferrer" href="https://github.com/AdelAssan">Github</a>
+                <a className="footer__text footer__link footer__link-yandex" target="_blank"  rel="noreferrer" href="https://practicum.yandex.ru/">Яндекс.Практикум</a>
             </div>
         </footer>
         </Route>

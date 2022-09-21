@@ -16,6 +16,10 @@
     border-radius: 10px;
 }
 
+.about__list{
+    list-style-type: none;
+}
+
 .about__name{
     font-weight: 400;
     font-size: 50px;
@@ -78,6 +82,8 @@
     line-height: 32px;
     position: relative;
     margin-top: 20px;
+    max-width: 1140px;
+    width: 100%;
 }
 
 .about__arrow{
@@ -126,7 +132,7 @@
     }
 
     .about__portfolio{
-        margin: 91px 50px 125px;
+        margin: 91px auto 125px;
     }
 
     .about__sites{
