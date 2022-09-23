@@ -131,11 +131,13 @@
     }
 
     .project__backend{
-        max-width: 100px;
+        max-width: 160px;
+        max-height: 35px;
+        white-space: nowrap;
     }
 
     .project__frontend{
-        max-width: 184px;
+        max-width: 250px;
     }
 
     .project__span{
@@ -146,5 +148,9 @@
         margin: 10px 0 0;
         font-size: 11px;
         line-height: 13px;
+    }
+
+    .project__grid{
+        grid-template-columns: 35% minmax(184px,912px);
     }
 }

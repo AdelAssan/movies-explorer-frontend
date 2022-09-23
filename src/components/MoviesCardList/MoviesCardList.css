@@ -2,7 +2,7 @@
     margin: 80px 70px 245px;
     display: grid;
     max-width: 1140px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     grid-template-rows: 246px;
     row-gap: 45px;
     column-gap: 30px;
@@ -50,5 +50,6 @@
 
     .movies-cards {
         margin: 40px 10px 200px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
