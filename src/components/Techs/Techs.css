@@ -1,0 +1,111 @@
+.techs{
+    margin: 0 auto;
+    background-color: #F5F5F5;
+    box-sizing: border-box;
+    padding: 100px 0;
+}
+
+.techs__title{
+    display: flex;
+    justify-content: center;
+    margin: 90px 340px 26px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    max-width: 600px;
+    white-space: nowrap;
+}
+
+.techs__paragraph{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 100px;
+    max-width: 460px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.techs__container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 690px;
+}
+
+.techs__keys{
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    min-width: 90px;
+    min-height: 60px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.techs__keys:last-of-type{
+    margin-right: 0;
+}
+
+@media screen and (max-width: 829px) {
+    .techs__title{
+        margin: 80px 84px 22px;
+    }
+
+    .techs__paragraph{
+        margin: 0 184px 83px;
+        font-size: 12px;
+        line-height: 18px;
+        max-width: 400px;
+    }
+
+    .techs__container{
+        margin: 0 45px 90px 35px;
+    }
+
+    .techs__keys{
+        min-width: 84px;
+        min-height: 57px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .techs{
+        margin: 70px auto;
+        background-color: #FFFFFF;
+    }
+
+    .techs__title{
+        margin: 60px auto 24px;
+        font-size: 30px;
+        line-height: 36px;
+        max-width: 292px;
+    }
+
+    .techs__paragraph{
+        margin: 0 auto 50px;
+        font-size: 11px;
+        line-height: 16px;
+        max-width: 292px;
+    }
+
+    .techs__container{
+        margin: 0 auto 70px;
+        max-width: 200px;
+        flex-wrap: wrap;
+        justify-content: normal;
+    }
+
+    .techs__keys{
+        margin: 0 10px 10px 0;
+    }
+}

@@ -1,0 +1,42 @@
+.main__titles{
+    font-size: 22px;
+    line-height: 27px;
+    font-weight: 400;
+    padding: 0 70px 23px;
+    margin: 0;
+    max-width: 1140px;
+}
+
+.main__border{
+    border-bottom: 1px solid #000000;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 877px) {
+    .main__titles{
+        padding: 0 50px 23px;
+        max-width: 668px;
+        box-sizing: border-box;
+    }
+
+    .main__border{
+        max-width: 668px;
+        margin: 0 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .main__titles{
+        padding: 0 18px 28px;
+        max-width: 400px;
+        box-sizing: border-box;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .main__border{
+        max-width: 400px;
+        margin: 0 18px;
+    }
+}
