@@ -7,18 +7,18 @@ function MoviesCardList(props) {
     const location = useLocation();
     return (
         <section className="movies-cards">
-            {props.isLoading ? <Preloader /> :
+            {props.isLoading ? <Preloader /> : props.error ? 
+            <span className="movie-cards__error">Ничего не найдено</span> :
                 <>
             {location.pathname === '/movies' &&
                 props.movie.slice(0, props.count)?.map((card) => (
-                        <MoviesCard key={card.id} card={card} savedMovie={props.savedMovie}
-                                    onDelete={props.onDelete} saveMovie={props.saveMovie} buttonDisabled={props.buttonDisabled}
-                                    onSave={props.onSave}
+                <MoviesCard key={card.id} card={card} savedMovie={props.savedMovie}
+                                    onDelete={props.onDelete} onSave={props.onSave}
                         />
             ))}
-            {location.pathname === '/saved-movies' && props.movie?.map((card) => (
+            {location.pathname === '/saved-movies' && props.movie.map((card) => (
                 <MoviesCard key={card.movieId} card={card} onDelete={props.onDelete} onSave={props.onSave}
-                            savedMovie={props.savedMovie} saveMovie={props.saveMovie} buttonDisabled={props.buttonDisabled}/>
+                            savedMovie={props.savedMovie} />
             ))
             }
                 {location.pathname === '/movies' && props.count < props.movie.length &&
