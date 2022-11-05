@@ -2,6 +2,10 @@
     color: #FF4062;
 }
 
+.forms__success{
+    color: #2BE080;
+}
+
 .login{
     margin: 70px auto 0;
     max-width: 396px;
