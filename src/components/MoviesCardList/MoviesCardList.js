@@ -3,12 +3,14 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import { useLocation } from 'react-router-dom';
 import Preloader from "../Preloader/Preloader";
 
+
 function MoviesCardList(props) {
     const location = useLocation();
+
     return (
         <section className="movies-cards">
             {props.isLoading ? <Preloader /> : props.error ? 
-            <span className="movie-cards__error">Ничего не найдено</span> :
+            <span className="movie-cards__error">{props.errorMessage}</span> :
                 <>
             {location.pathname === '/movies' &&
                 props.movie.slice(0, props.count)?.map((card) => (

@@ -8,11 +8,11 @@ function SearchForm(props) {
            <div className="search-form__input-img"/>
            <input required placeholder="Фильм" className="search-form__input" type="text" onChange={props.onChangeHandler}
                   minLength="2" maxLength="30" value={props.renderedMovies || ''}  />
-           <button className="search-form__btn" type="submit">Найти</button>
+           <button className="search-form__btn" type="submit" onMouseDown={props.searchHandler}>Найти</button>
            </form>
            <div className='checkbox'>
                <label className="checkbox__container">
-                   <input type="checkbox" onChange={props.onlyShortMovies} value={props.checkbox} defaultChecked={props.checkbox} />
+                   <input type="checkbox" onChange={props.onlyShortMovies} value={props.checkbox} defaultChecked={props.checkbox} onMouseDown={props.onlyShortMovies} />
                    <span className="checkbox__slider" />
                </label>
                <span className='checkbox__text'>Короткометражки</span>

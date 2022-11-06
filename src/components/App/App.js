@@ -14,6 +14,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as auth from "../../utils/Auth";
 import api from "../../utils/Api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import movieApi from "../../utils/MovieApi";
 
 function App() {
     const [currentUser, setCurrentUser] = React.useState({});
@@ -92,12 +93,12 @@ function App() {
         tokenCheck();
     }, []);
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         if (loggedIn) {
             history.push('/movies');
         }
         history.push('/');
-    }, [loggedIn]);
+    }, [loggedIn]);*/
 
     const handleSignOut = () => {
         //localStorage.removeItem('jwt');
@@ -111,14 +112,15 @@ function App() {
     React.useEffect(() => {
         setIsLoading(true);
         setTimeout(() => setIsLoading(false), 1000);
-        if (loggedIn) {
+        if (localStorage.getItem('jwt')) {
             api.getSavedMovies()
                 .then((res) => {
                     const findSavedMovies = res.filter((i) => i.owner._id === currentUser._id)
                     setSavedMovie(findSavedMovies);
+                    //history.push('/movies');
                 }).catch((err) => console.log(err));
         }
-    }, [loggedIn]);
+    }, [currentUser]);
 
     const saveMovieHandler = (movie) => {
         api.postMovieMark(movie)
@@ -126,7 +128,11 @@ function App() {
                 const updatedSavedMovies = [...savedMovie, { ...res, id: res.movieId }];
                 setSavedMovie(updatedSavedMovies);
                 //console.log(savedMovie);
-            }).catch((err) => console.log(err));
+            }).catch((err) => {console.log(err);
+                if(err.response.status === 401){
+                    handleSignOut();
+                }
+            });
     }
 
     function deleteMovieMarkHandler(movie) {

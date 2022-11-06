@@ -32,7 +32,7 @@ function Register(props) {
                 <span className="forms__error forms__span">{errors.name}</span>
                 <span className="forms__span">E-mail</span>
                 <input required type="email" className={`forms__input ${errors.email && 'forms__input_error'}`} name="email" onChange={handleChange}
-                       value={values.email || ''} autoComplete="off" />
+                       value={values.email || ''} autoComplete="off" pattern="^\S+@\S+\.\S+$" />
                 <span className="forms__error forms__span">{errors.email}</span>
                 <span className="forms__span">Пароль</span>
                 <input required type="password" className={`forms__input ${errors.password && 'forms__input_error'}`} name="password" onChange={handleChange}

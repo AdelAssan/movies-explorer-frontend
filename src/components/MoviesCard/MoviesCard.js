@@ -29,7 +29,7 @@ function MoviesCard(props) {
             thumbnail: `https://api.nomoreparties.co${props.card.image.formats.thumbnail.url}`,
             movieId: props.card.id,
         });
-        console.log(props.savedMovie)
+        //console.log(props.savedMovie)
     }
 
     return (<>

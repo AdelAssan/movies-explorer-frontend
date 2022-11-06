@@ -2,16 +2,18 @@ import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import movieApi from "../../utils/MovieApi";
+import {Desctop_Width, Desctop_Cards, Tablet_Width, Tablet_Cards, Mobile_Cards, Desctop_ExtraCards, TabletMobile_ExtraCards} from "../../constants/constants";
 
 function Movies (props) {
     const [renderedMovies, setRenderedMovies] = React.useState(getSearchValue());
     const [movie, setMovie] = React.useState([]);
     const [allMovies, setAllMovies] = React.useState(JSON.parse(localStorage.getItem('allMovies')) || []);
     const [isLoading, setIsLoading] = React.useState(false);
-    const [checkbox, setCheckbox] = React.useState(false);
+    const [checkbox, setCheckbox] = React.useState(JSON.parse(localStorage.getItem('checkboxStatus')) || false);
     const [error, setError] = React.useState(false);
     const [width, setWidth] = React.useState(window.innerWidth);
     const [count, setCount] = React.useState(getFirstMoviesArr(width));
+    const [errorMessage, setErrorMessage] = React.useState('');
 
     React.useEffect(() => {
         function sizeHandler() {
@@ -22,22 +24,22 @@ function Movies (props) {
     }, [width]);
 
     function getFirstMoviesArr(width) {
-        if (width >= 1280) {
-            return 12;
+        if (width >= Desctop_Width) {
+            return Desctop_Cards;
         }
-        if (width >= 768) {
-            return 8;
+        if (width >= Tablet_Width) {
+            return Tablet_Cards;
         }
         else {
-            return 5;
+            return Mobile_Cards;
         }
     }
 
     const loadMore = (width) => {
-        if (width >= 1280) {
-            return 3;
+        if (width >= Desctop_Width) {
+            return Desctop_ExtraCards;
         }
-        return 2;
+        return TabletMobile_ExtraCards;
     }
 
     function extraMoviesHandler() {
@@ -49,10 +51,11 @@ function Movies (props) {
         const movies = props.onFilter(allMovies, renderedMovies, checkbox);
         const localMovieArr = (JSON.parse(localStorage.getItem('filteredMovies')) || []);
         localStorage.setItem('filteredMovies', JSON.stringify(movies));
-        //localStorage.setItem('checkboxStatus', checkbox);
+        localStorage.setItem('checkboxStatus', checkbox);
         setMovie(localMovieArr);
         if (localMovieArr.length === 0 && renderedMovies.length > 0) {
             setIsLoading(false);
+            setErrorMessage('Ничего не найдено');
             return setError(true);
         }
     }, [allMovies, checkbox])
@@ -68,19 +71,21 @@ function Movies (props) {
         setTimeout(() => setIsLoading(false), 1000);
         if (renderedMovies === '') {
             setIsLoading(false);
+            setErrorMessage('Введите ключевое слово');
             return setError(true);
         }
         if (!JSON.parse(localStorage.getItem('allMovies'))) {
             movieApi.getMovies()
                 .then((res) => {
                     setIsLoading(false);
-                    setAllMovies(res);
                     localStorage.setItem('allMovies', JSON.stringify(res));
+                    setAllMovies(res);
                     localStorage.setItem('filmSearch', renderedMovies);
+                    setError(false);
                 })
                 .catch(() => {
                     setError(true);
-                });
+                })
         }
         else {
             setAllMovies(JSON.parse(localStorage.getItem('allMovies')));
@@ -105,7 +110,7 @@ function Movies (props) {
         <main className="movies">
            <SearchForm searchHandler={searchHandler} onChangeHandler={onChangeHandler}
                        renderedMovies={renderedMovies} onlyShortMovies={onlyShortMovies} checkbox={checkbox} />
-                <MoviesCardList movie={movie} isLoading={isLoading} error={error} savedMovie={props.savedMovie}
+                <MoviesCardList movie={movie} isLoading={isLoading} error={error} savedMovie={props.savedMovie} errorMessage={errorMessage}
                                 count={count} onDelete={props.onDelete} extraMoviesHandler={extraMoviesHandler} onSave={props.onSave}
             />
         </main>

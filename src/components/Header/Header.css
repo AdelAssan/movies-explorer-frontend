@@ -33,6 +33,7 @@
     text-align: center;
     padding-top: 8px;
     box-sizing: border-box;
+    display: none;
 }
 
 .header__login{
@@ -46,8 +47,16 @@
     text-align: center;
     padding-top: 8px;
     box-sizing: border-box;
+    display: none;
 }
 
+.header__login_active{
+    display: inline-block;
+}
+
+.header__reg_active{
+    display: inline-block;
+}
 
 @media screen and (max-width: 829px) {
     .header{
