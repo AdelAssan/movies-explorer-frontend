@@ -2,7 +2,7 @@ import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import movieApi from "../../utils/MovieApi";
-import {Desctop_Width, Desctop_Cards, Tablet_Width, Tablet_Cards, Mobile_Cards, Desctop_ExtraCards, TabletMobile_ExtraCards} from "../../constants/constants";
+import {DESCTOP_WIDTH, DESCTOP_CARDS, TABLET_WIDTH, TABLET_CARDS, MOBILE_CARDS, DESCTOP_EXRACARDS, TABLETMOBILE_EXRACARDS} from "../../constants/constants";
 
 function Movies (props) {
     const [renderedMovies, setRenderedMovies] = React.useState(getSearchValue());
@@ -14,6 +14,7 @@ function Movies (props) {
     const [width, setWidth] = React.useState(window.innerWidth);
     const [count, setCount] = React.useState(getFirstMoviesArr(width));
     const [errorMessage, setErrorMessage] = React.useState('');
+    const [clicked, setClicked] = React.useState(false);
 
     React.useEffect(() => {
         function sizeHandler() {
@@ -24,22 +25,22 @@ function Movies (props) {
     }, [width]);
 
     function getFirstMoviesArr(width) {
-        if (width >= Desctop_Width) {
-            return Desctop_Cards;
+        if (width >= DESCTOP_WIDTH) {
+            return DESCTOP_CARDS;
         }
-        if (width >= Tablet_Width) {
-            return Tablet_Cards;
+        if (width >= TABLET_WIDTH) {
+            return TABLET_CARDS;
         }
         else {
-            return Mobile_Cards;
+            return MOBILE_CARDS;
         }
     }
 
     const loadMore = (width) => {
-        if (width >= Desctop_Width) {
-            return Desctop_ExtraCards;
+        if (width >= DESCTOP_WIDTH) {
+            return DESCTOP_EXRACARDS;
         }
-        return TabletMobile_ExtraCards;
+        return TABLETMOBILE_EXRACARDS;
     }
 
     function extraMoviesHandler() {
@@ -48,27 +49,27 @@ function Movies (props) {
 
     React.useEffect(() => {
         setError(false);
-        const movies = props.onFilter(allMovies, renderedMovies, checkbox);
-        const localMovieArr = (JSON.parse(localStorage.getItem('filteredMovies')) || []);
-        localStorage.setItem('filteredMovies', JSON.stringify(movies));
+        const moviesArr = props.onFilter(allMovies, renderedMovies, checkbox);
         localStorage.setItem('checkboxStatus', checkbox);
+        localStorage.setItem('filteredMovies', JSON.stringify(moviesArr));
+        const localMovieArr = (JSON.parse(localStorage.getItem('filteredMovies')) || []);
         setMovie(localMovieArr);
         if (localMovieArr.length === 0 && renderedMovies.length > 0) {
             setIsLoading(false);
-            setErrorMessage('Ничего не найдено');
+            setTimeout(() => setErrorMessage('Ничего не найдено'), 500);
             return setError(true);
         }
     }, [allMovies, checkbox])
 
     function onlyShortMovies() {
         setCheckbox(!checkbox);
+        setClicked(true);
     }
 
     function searchHandler(evt) {
         evt.preventDefault();
         setError(false);
         setIsLoading(true);
-        setTimeout(() => setIsLoading(false), 1000);
         if (renderedMovies === '') {
             setIsLoading(false);
             setErrorMessage('Введите ключевое слово');
@@ -78,14 +79,14 @@ function Movies (props) {
             movieApi.getMovies()
                 .then((res) => {
                     setIsLoading(false);
-                    localStorage.setItem('allMovies', JSON.stringify(res));
                     setAllMovies(res);
+                    localStorage.setItem('allMovies', JSON.stringify(res));
                     localStorage.setItem('filmSearch', renderedMovies);
                     setError(false);
                 })
                 .catch(() => {
                     setError(true);
-                })
+                }).finally(() => {setIsLoading(false)})
         }
         else {
             setAllMovies(JSON.parse(localStorage.getItem('allMovies')));

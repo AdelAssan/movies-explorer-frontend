@@ -129,7 +129,7 @@ function App() {
                 setSavedMovie(updatedSavedMovies);
                 //console.log(savedMovie);
             }).catch((err) => {console.log(err);
-                if(err.response.status === 401){
+                if(err === 'Ошибка 401'){
                     handleSignOut();
                 }
             });
@@ -146,11 +146,11 @@ function App() {
 
     const filterHandler = (allMovies, renderedMovies, checkbox) => {
         return allMovies.filter((check) => {
-            if (checkbox === false) {
-                return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase());
-            }
             if (checkbox === true) {
                 return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase()) && check.duration <= 40;
+            }
+            if (checkbox === false) {
+                return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase());
             }
         });
     }
@@ -164,7 +164,7 @@ function App() {
       <Main/>
         </Route>
         <ProtectedRoute exact path="/movies" loggedIn={loggedIn}>
-            <Movies onFilter={filterHandler} onSave={saveMovieHandler} savedMovie={savedMovie} onDelete={deleteMovieMarkHandler} />
+            <Movies  onFilter={filterHandler} onSave={saveMovieHandler} savedMovie={savedMovie} onDelete={deleteMovieMarkHandler} />
         </ProtectedRoute>
         <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn} >
             <SavedMovies  savedMovie={savedMovie} onFilter={filterHandler} isLoading={isLoading} onDelete={deleteMovieMarkHandler} />
@@ -182,9 +182,9 @@ function App() {
         <Route exact path="*">
             <Error/>
         </Route>
-            <Route>
-                {loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
-            </Route>
+        <Route>
+                {loggedIn ? <Redirect to="/movies" /> : <Redirect to="/signin" />}
+                    </Route>
         </Switch>
       <Footer/>
     </div>

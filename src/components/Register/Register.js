@@ -15,7 +15,6 @@ function Register(props) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleRegister(name, email, password);
-        formWithValidation.resetForm();
     };
 
 

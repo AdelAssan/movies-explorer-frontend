@@ -28,7 +28,7 @@ function SavedMovies(props) {
         setFind(false);
         setError(false);
         if (filteredMovies.length === 0 && renderedMovies.length > 0) {
-            setErrorMessage('Ничего не найдено');
+            setTimeout(() => setErrorMessage('Ничего не найдено'), 500);
             return setError(true);
         }
     }, [find, checkbox]);

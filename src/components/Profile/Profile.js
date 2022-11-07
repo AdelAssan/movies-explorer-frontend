@@ -1,8 +1,10 @@
 import React from "react";
 import useFormWithValidation from "../../hook/useFormWithValidation";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Profile(props) {
     const formWithValidation = useFormWithValidation();
+    const currentUserInfo = React.useContext(CurrentUserContext);
     const {values, handleChange, errors, isValid, setValues} = formWithValidation;
     const { name,email } = formWithValidation.values;
     const [buttonDisabled, setButtonDisabled] = React.useState(false);
@@ -13,11 +15,11 @@ function Profile(props) {
     }
 
     React.useEffect(() => {
-        setValues(props.currentUser);
-    }, [props.currentUser]);
+        setValues(currentUserInfo);
+    }, [currentUserInfo]);
 
     React.useEffect(() => {
-        if(values.name === props.currentUser.name && values.email === props.currentUser.email){
+        if(values.name === currentUserInfo.name && values.email === currentUserInfo.email){
            return setButtonDisabled(true)
         }
         else {
@@ -27,7 +29,7 @@ function Profile(props) {
 
     return(
       <form className="profile" onSubmit={submitHandler}>
-          <h2 className="profile__greetings">Привет, {props.currentUser.name}!</h2>
+          <h2 className="profile__greetings">Привет, {currentUserInfo.name}!</h2>
           <div className="profile__info">
               <div className="profile__name">
                   <p className="profile__text">Имя</p>

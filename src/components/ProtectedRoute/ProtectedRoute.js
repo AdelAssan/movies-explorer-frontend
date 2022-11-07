@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ loggedIn, children, path, exact }) => {
+const ProtectedRoute = ({ children, path, loggedIn }) => {
     return (
         <Route exact path={path}>
-            {loggedIn ? children : <Redirect to="/signin"/>}
+            {localStorage.getItem('jwt') ? children : <Redirect to="/"/>}
         </Route>
     )
 }
