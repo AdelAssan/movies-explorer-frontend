@@ -1,4 +1,3 @@
-import {useHistory} from 'react-router-dom';
 class Api {
     constructor({baseUrl}) {
         this._baseUrl = baseUrl;

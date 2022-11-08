@@ -115,7 +115,7 @@ function App() {
             api.getSavedMovies()
                 .then((res) => {
                     const findSavedMovies = res?.filter((i) => i.owner._id === currentUser._id);
-                    setSavedMovie(findSavedMovies)
+                    setSavedMovie(findSavedMovies);
                     //history.push('/movies');
                     console.log(findSavedMovies);
                 }).catch((err) => console.log(err)).finally(()=>{setIsLoading(false)})
