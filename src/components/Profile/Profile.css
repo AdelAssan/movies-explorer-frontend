@@ -55,7 +55,7 @@
 
 .profile__link_disabled{
     color: dimgrey;
-    cursor: none;
+    cursor: inherit;
 }
 
 .profile__link_red{
