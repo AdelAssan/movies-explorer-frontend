@@ -46,7 +46,7 @@ function Profile(props) {
               { props.isChangeProfile && <span className="forms__success forms__span">Профиль успешно обновлен</span>}
               { props.isChangeError && <span className="forms__error forms__span">Что-то пошло не так ...</span>}
           </div>
-          <button className={buttonDisabled ? 'profile__link profile__link_disabled' : `profile__link ${!isValid && 'profile__link_disabled'} `} type="submit" disabled={!isValid}>Редактировать</button>
+          <button className={buttonDisabled ? 'profile__link profile__link_disabled' : `profile__link ${!isValid && 'profile__link_disabled'} `} type="submit" disabled={buttonDisabled ? true : isValid ? false : true}>Редактировать</button>
           <a href="#" className="profile__link profile__link_red" onClick={props.onSignOut}>Выйти из аккаунта</a>
       </form>
     );

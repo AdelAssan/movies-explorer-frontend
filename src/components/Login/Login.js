@@ -7,6 +7,7 @@ function Login(props) {
     const formWithValidation = useFormWithValidation();
     const {values, handleChange, errors, isValid, resetForm} = formWithValidation;
     const { email, password } = formWithValidation.values;
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
     React.useEffect(() => {
         resetForm();
@@ -15,7 +16,8 @@ function Login(props) {
     const handleSubmit = (evt) => {
             evt.preventDefault();
         props.handleLogin(email, password);
-        formWithValidation.resetForm();
+        //formWithValidation.resetForm();
+        return setButtonDisabled(true);
     }
 
     return(
@@ -32,7 +34,7 @@ function Login(props) {
               <input required type="password" className={`forms__input ${errors.password && 'forms__input_error'}`} name="password" onChange={handleChange} value={values.password || ''} autoComplete="off" />
               <span className="forms__error forms__span">{errors.password}</span>
               {props.isLoginError && <span className="forms__error forms__span">Вы не зарегестрированы</span>}
-              <button type="submit" className={`forms__button ${!isValid && 'forms__button_disabled'} `} disabled={!isValid}>Войти</button>
+              <button type="submit" className={buttonDisabled ? 'forms__button forms__button_disabled' : `forms__button ${!isValid && 'forms__button_disabled'} `} disabled={buttonDisabled ? true : isValid ? false : true}>Войти</button>
           </form>
           <div className="forms__question">
               <p className="forms__question-text">Ещё не зарегистрированы?</p>

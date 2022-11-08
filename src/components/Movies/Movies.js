@@ -14,7 +14,6 @@ function Movies (props) {
     const [width, setWidth] = React.useState(window.innerWidth);
     const [count, setCount] = React.useState(getFirstMoviesArr(width));
     const [errorMessage, setErrorMessage] = React.useState('');
-    const [clicked, setClicked] = React.useState(false);
 
     React.useEffect(() => {
         function sizeHandler() {
@@ -50,8 +49,8 @@ function Movies (props) {
     React.useEffect(() => {
         setError(false);
         const moviesArr = props.onFilter(allMovies, renderedMovies, checkbox);
-        localStorage.setItem('checkboxStatus', checkbox);
         localStorage.setItem('filteredMovies', JSON.stringify(moviesArr));
+        localStorage.setItem('checkboxStatus', checkbox);
         const localMovieArr = (JSON.parse(localStorage.getItem('filteredMovies')) || []);
         setMovie(localMovieArr);
         if (localMovieArr.length === 0 && renderedMovies.length > 0) {
@@ -63,7 +62,18 @@ function Movies (props) {
 
     function onlyShortMovies() {
         setCheckbox(!checkbox);
-        setClicked(true);
+    }
+
+    function getSearchValue() {
+        const searchValue = localStorage.getItem('filmSearch');
+        if (!searchValue) {
+            return '';
+        }
+        return searchValue;
+    }
+
+    function onChangeHandler(evt) {
+        setRenderedMovies(evt.target.value);
     }
 
     function searchHandler(evt) {
@@ -79,8 +89,8 @@ function Movies (props) {
             movieApi.getMovies()
                 .then((res) => {
                     setIsLoading(false);
-                    setAllMovies(res);
                     localStorage.setItem('allMovies', JSON.stringify(res));
+                    setAllMovies(res);
                     localStorage.setItem('filmSearch', renderedMovies);
                     setError(false);
                 })
@@ -93,18 +103,6 @@ function Movies (props) {
             setIsLoading(false);
             localStorage.setItem('filmSearch', renderedMovies);
         }
-    }
-
-    function getSearchValue() {
-        const searchValue = localStorage.getItem('filmSearch');
-        if (!searchValue) {
-            return '';
-        }
-        return searchValue;
-    }
-
-    function onChangeHandler(evt) {
-        setRenderedMovies(evt.target.value);
     }
 
     return (

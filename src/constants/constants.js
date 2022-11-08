@@ -5,3 +5,4 @@ export const TABLET_CARDS = 8;
 export const MOBILE_CARDS = 5;
 export const DESCTOP_EXRACARDS = 3;
 export const TABLETMOBILE_EXRACARDS = 2;
+export const DURATION_NUMBER = 40;

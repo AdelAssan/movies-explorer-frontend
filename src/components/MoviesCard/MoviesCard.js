@@ -33,7 +33,7 @@ function MoviesCard(props) {
     }
 
     return (<>
-        <article className="movies-card" key={props.card.id || props.card.movieId}>
+        <article className="movies-card" key={props.card.movieId}>
             <a className="movies-card__link"  href={props.card.trailerLink} target="_blank" rel="noreferrer">
             <img className="movies-card__img" alt={`Фотография к фильму ${props.card.nameRU}`} src={location.pathname === '/saved-movies' ? `${props.card.image}` : `https://api.nomoreparties.co${props.card.image.url}`} />
             </a>

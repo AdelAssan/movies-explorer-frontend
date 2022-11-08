@@ -7,6 +7,7 @@ function Register(props) {
     const formWithValidation = useFormWithValidation();
     const {errors, isValid, resetForm, handleChange, values} = formWithValidation;
     const { name, email, password } = formWithValidation.values;
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
 
     React.useEffect(() => {
         resetForm();
@@ -15,6 +16,7 @@ function Register(props) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleRegister(name, email, password);
+        return setButtonDisabled(true);
     };
 
 
@@ -38,7 +40,7 @@ function Register(props) {
                        value={values.password || ''}  autoComplete="off"/>
                 <span className="forms__error forms__span" id="error-name">{errors.password}</span>
                 {props.isRegError && <span className="forms__error forms__span">Что-то пошло не так ...</span>}
-                <button type="submit" className={`forms__button ${!isValid && 'forms__button_disabled'} `} disabled={!isValid}>Зарегистрироваться</button>
+                <button type="submit" className={buttonDisabled ? 'forms__button forms__button_disabled' : `forms__button ${!isValid && 'forms__button_disabled'} `} disabled={buttonDisabled ? true : isValid ? false : true}>Зарегистрироваться</button>
             </form>
             <div className="forms__question">
                 <p className="forms__question-text">Уже зарегистрированы?</p>

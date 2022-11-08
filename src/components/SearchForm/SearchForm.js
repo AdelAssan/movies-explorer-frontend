@@ -2,12 +2,6 @@ import React from "react";
 
 function SearchForm(props) {
 
-    //const [checkbox, setCheckbox] = React.useState(false);
-
-   // function alert (){
-      //  console.log('skjdfhvsdljk');
-   // }
-
     return(
        <section className="search-form">
        <form className="search-form__form" onSubmit={props.searchHandler} noValidate>

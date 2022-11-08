@@ -14,7 +14,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as auth from "../../utils/Auth";
 import api from "../../utils/Api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import movieApi from "../../utils/MovieApi";
+import {DURATION_NUMBER} from "../../constants/constants";
 
 function App() {
     const [currentUser, setCurrentUser] = React.useState({});
@@ -111,23 +111,23 @@ function App() {
 
     React.useEffect(() => {
         setIsLoading(true);
-        setTimeout(() => setIsLoading(false), 1000);
         if (localStorage.getItem('jwt')) {
             api.getSavedMovies()
                 .then((res) => {
-                    const findSavedMovies = res.filter((i) => i.owner._id === currentUser._id)
-                    setSavedMovie(findSavedMovies);
+                    const findSavedMovies = res?.filter((i) => i.owner._id === currentUser._id);
+                    setSavedMovie(findSavedMovies)
                     //history.push('/movies');
-                }).catch((err) => console.log(err));
+                    console.log(findSavedMovies);
+                }).catch((err) => console.log(err)).finally(()=>{setIsLoading(false)})
         }
-    }, [currentUser]);
+    }, [localStorage.getItem('jwt')]);
 
     const saveMovieHandler = (movie) => {
         api.postMovieMark(movie)
             .then((res) => {
                 const updatedSavedMovies = [...savedMovie, { ...res, id: res.movieId }];
                 setSavedMovie(updatedSavedMovies);
-                //console.log(savedMovie);
+                console.log(savedMovie);
             }).catch((err) => {console.log(err);
                 if(err === 'Ошибка 401'){
                     handleSignOut();
@@ -147,7 +147,7 @@ function App() {
     const filterHandler = (allMovies, renderedMovies, checkbox) => {
         return allMovies.filter((check) => {
             if (checkbox === true) {
-                return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase()) && check.duration <= 40;
+                return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase()) && check.duration <= DURATION_NUMBER;
             }
             if (checkbox === false) {
                 return check.nameRU.toLowerCase().includes(renderedMovies.toLowerCase());

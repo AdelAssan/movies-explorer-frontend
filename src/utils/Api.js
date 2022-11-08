@@ -14,8 +14,6 @@ class Api {
     _checkResponse(res) {
         if (res.ok) {
             return res.json();
-        }if(res.status === 401){
-            localStorage.clear();
         }
         return Promise.reject(`Ошибка ${res.status}`);
     }
