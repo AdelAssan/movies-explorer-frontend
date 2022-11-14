@@ -23,6 +23,21 @@
     position: absolute;
     bottom: -136px;
     width: 100%;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.movie-cards__error{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    color: #FF4062;
+}
+
+.movies-cards__btn_hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 @media screen and (max-width: 950px) {

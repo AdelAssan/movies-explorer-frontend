@@ -27,6 +27,12 @@
     width: 100%;
 }
 
+.profile__user{
+    margin-left: 200px;
+    border: none;
+    text-align: right;
+}
+
 .profile__email{
     font-weight: 500;
     font-size: 11px;
@@ -42,6 +48,14 @@
     margin-bottom: 16px;
     text-decoration: none;
     color: #000000;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.profile__link_disabled{
+    color: dimgrey;
+    cursor: inherit;
 }
 
 .profile__link_red{

@@ -11,16 +11,19 @@ function Header(props) {
         <Route path="/(|movies|saved-movies|profile)">
         <header className="header"
                 style={{background: location.pathname !== "/" ? "#FFFFFF" : "#F3C1F8"}}>
-
-            <Link to="/">
+                    <Link to="/">
                 <img alt="Логотип" className="header__logo" src={logo}/>
             </Link>
+       {( (!props.loggedIn) ? (<>
             <div className="header__buttons"
                  style={{display: location.pathname !== "/" ? "none" : "flex"}}>
-                <Link className="header__reg" to="/signup">Регистрация</Link>
-                <Link className="header__login" to="/signin">Войти</Link>
+                <Link className={!props.loggedIn ? "header__reg header__reg_active" : "header__reg"} to="/signup">Регистрация</Link>
+                <Link className={!props.loggedIn ? "header__login header__login_active" : "header__login"} to="/signin">Войти</Link>
             </div>
-           <Navigation/>
+            </>)
+            :
+           (<Navigation/>)
+           )}
         </header>
         </Route>
     );
