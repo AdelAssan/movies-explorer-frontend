@@ -20,7 +20,7 @@ function AboutMe(props) {
                 <li className="about__list"><p className="about__portfolio-name">Портфолио</p></li>
                 <li className="about__list"><a target="_blank" href="https://adelassan.github.io/how-to-learn/"  rel="noreferrer" className="about__sites">Статичный сайт<div className="about__arrow"/></a></li>
                 <li className="about__list"><a target="_blank" href="https://adelassan.github.io/russian-travel/"  rel="noreferrer" className="about__sites">Адаптивный сайт<div className="about__arrow"/></a></li>
-                <li className="about__list"><a  target="_blank" href="https://adelassan.nomoredomains.sbs/"  rel="noreferrer" className="about__sites">Одностраничное приложение<div className="about__arrow"/></a></li>
+                <li className="about__list"><a  target="_blank" href="https://mesto.onrender.com/"  rel="noreferrer" className="about__sites">Одностраничное приложение<div className="about__arrow"/></a></li>
             </ul>
         </section>
     );
