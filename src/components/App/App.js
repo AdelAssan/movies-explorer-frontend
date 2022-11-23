@@ -127,7 +127,7 @@ function App() {
             .then((res) => {
                 const updatedSavedMovies = [...savedMovie, { ...res, id: res.movieId }];
                 setSavedMovie(updatedSavedMovies);
-                console.log(savedMovie);
+                //console.log(savedMovie);
             }).catch((err) => {console.log(err);
                 if(err === 'Ошибка 401'){
                     handleSignOut();
